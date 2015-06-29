@@ -24,7 +24,7 @@
      function onPhotoUpload(event) {
        console.log("this is weird");
        // There's file attached to the input field, but upon submission, the field won't populate
-       debugger;
+       $(event.target).val(event.fpfile.url)
      };
    </script>
    <%= f.label :picture_url, "Upload Your Avatar:" %>
