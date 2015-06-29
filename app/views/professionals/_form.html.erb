@@ -20,13 +20,6 @@
     <%= f.text_field :last_name %>
   </div>
   <div class="field">
-   <script type="text/javascript">
-     function onPhotoUpload(event) {
-       console.log("this is weird");
-       // There's file attached to the input field, but upon submission, the field won't populate
-       $(event.target).val(event.fpfile.url)
-     };
-   </script>
    <%= f.label :picture_url, "Upload Your Avatar:" %>
    <%= f.filepicker_field :picture_url, onchange: "onPhotoUpload(event)" %>
  </div>
