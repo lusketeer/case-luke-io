@@ -25,7 +25,6 @@ class ProfessionalsController < ApplicationController
   # POST /professionals.json
   def create
     @professional = Professional.new(professional_params)
-
     respond_to do |format|
       if @professional.save
         format.html { redirect_to @professional, notice: 'Professional was successfully created.' }
