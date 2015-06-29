@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
-
+<% if @professional.picture_url %>
+  <%= filepicker_image_tag @professional.picture_url, w: 160, h: 160, fit: 'clip' %>
+<% end %>
 <p>
   <strong>First name:</strong>
   <%= @professional.first_name %>

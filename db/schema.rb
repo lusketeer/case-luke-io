@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150629181348) do
+ActiveRecord::Schema.define(version: 20150629182856) do
 
   create_table "professionals", force: :cascade do |t|
     t.string   "first_name"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20150629181348) do
     t.datetime "updated_at",   null: false
     t.string   "lat"
     t.string   "lng"
+    t.string   "picture_url"
   end
 
 end

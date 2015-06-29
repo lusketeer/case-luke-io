@@ -19,6 +19,10 @@
     <%= f.label :last_name %><br>
     <%= f.text_field :last_name %>
   </div>
+  <div>
+   <%= f.label :picture_url, "Upload Your Avatar:" %>
+   <%= f.filepicker_field :picture_url %>
+ </div>
   <div class="field">
     <%= f.label :address %><br>
     <%= f.text_field :address %>
@@ -31,6 +35,7 @@
     <%= f.label :specialty %><br>
     <%= f.text_field :specialty %>
   </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
