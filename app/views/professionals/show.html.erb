@@ -27,5 +27,22 @@
 
 <%= link_to 'Edit', edit_professional_path(@professional) %> |
 <%= link_to 'Back', professionals_path %>
-
+<script>
+    function initialize() {
+      var mapCanvas = document.getElementById('map-canvas');
+      var myLatlng = new google.maps.LatLng(<%= @professional.lat %>, <%= @professional.lng %>);
+      var mapOptions = {
+        center: myLatlng,
+        zoom: 12,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      };
+      var map = new google.maps.Map(mapCanvas, mapOptions);
+      var marker = new google.maps.Marker({
+          position: myLatlng,
+          map: map,
+          title: "<%= @professional.first_name %>"
+      });
+    }
+    google.maps.event.addDomListener(window, 'load', initialize);
+  </script>
 <div id="map-canvas"></div>

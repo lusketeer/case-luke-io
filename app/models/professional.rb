@@ -1,6 +1,8 @@
 require 'open-uri'
 
 class Professional < ActiveRecord::Base
+  before_save :get_geo_from_address
+  
   def get_geo_from_address
     api_header = "https://maps.googleapis.com/maps/api/geocode/json?address="
     lookup_query = (api_header + address).gsub(/ /, "+")
