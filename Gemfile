@@ -24,7 +24,7 @@ gem 'jbuilder', '~> 2.0'
 # gem 'ejs' #embedded javascript for backbone templates
 # gem 'marked-rails' # markdown format for text
 # gem 'foundation-rails' # foundation css framework
-
+gem 'filepicker-rails'
 
 group :production do
   gem 'pg'
