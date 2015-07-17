@@ -14,7 +14,8 @@ set :use_sudo, false
 # Default value for :scm is :git
 set :scm, :git
 set :repo_url, 'https://github.com/lusketeer/case-luke-io.git'
-set :rbenv_ruby, 'ruby 2.1.0p0'
+set :rbenv_custom_path, "/home/lukelu/.rbenv"
+set :rbenv_ruby, '2.1.0'
 set :ssh_options, {
   keys: %w(~/.ssh/id_rsa),
   forward_agent: false,
@@ -39,7 +40,6 @@ set :ssh_options, {
 # set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
 
 # Default value for default_env is {}
-# set :default_env, { path: "/opt/ruby/bin:$PATH" }
 
 # Default value for keep_releases is 5
 # set :keep_releases, 5
