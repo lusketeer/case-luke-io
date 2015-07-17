@@ -1,13 +1,13 @@
+require 'capistrano/bundler'
 # config valid only for current version of Capistrano
 lock '3.4.0'
-
-# server "130.211.186.249", :web, :app, :db, primary: true
+# server "130.211.186.249", user: "lukelu", roles: %w{web, app, db}, primary: true
 
 set :application, 'smokio-case'
 set :user, "lukelu"
 # Default deploy_to directory is /var/www/my_app_name
 set :deploy_to, "/home/#{ fetch(:user) }/myapps/#{ fetch(:application) }"
-set :use_sudo, false
+set :use_sudo, true
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
@@ -21,6 +21,12 @@ set :ssh_options, {
   forward_agent: false,
   auth_methods: %w(publickey)
 }
+
+# set :default_environment, {
+#   # :PATH => '$HOME/.rvm/gems/ruby-2.0.0-p353/bin:$PATH',
+#   # :GEM_HOME => '$HOME/.rbenv/versions/2.1.0/lib/ruby/gems/2.1.0'
+#   # :GEM_PATH => '$HOME/.rvm/gems/ruby-2.0.0-p353:$HOME/.rvm/gems/ruby-2.0.0-p353@global'
+# }
 # set :stages, ["staging", "production"]
 # set :default_stage, "staging"
 
@@ -42,7 +48,7 @@ set :ssh_options, {
 # Default value for default_env is {}
 
 # Default value for keep_releases is 5
-# set :keep_releases, 5
+set :keep_releases, 5
 
 namespace :deploy do
   # task :restart, roles: :app do
@@ -51,9 +57,9 @@ namespace :deploy do
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
       # Here we can do anything such as:
-      # within release_path do
-      #   execute :rake, 'cache:clear'
-      # end
+      within release_path do
+        execute :rake, 'cache:clear'
+      end
     end
   end
 

@@ -170,6 +170,7 @@ DEPENDENCIES
   binding_of_caller
   byebug
   capistrano
+  capistrano-bundler
   capistrano-rails
   capistrano-rbenv
   faker

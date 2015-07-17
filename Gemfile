@@ -28,6 +28,7 @@ gem 'filepicker-rails'
 gem 'capistrano'
 gem 'capistrano-rails'
 gem 'capistrano-rbenv'
+gem 'capistrano-bundler'
 
 group :production do
   gem 'pg'
