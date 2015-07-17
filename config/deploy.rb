@@ -1,12 +1,12 @@
 # config valid only for current version of Capistrano
 lock '3.4.0'
 
-server "130.211.186.249", :web, :app, :db, primary: true
+# server "130.211.186.249", :web, :app, :db, primary: true
 
 set :application, 'smokio-case'
 set :user, "lukelu"
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, "/home/#{ user }/myapps/#{ application }"
+set :deploy_to, "/home/#{ fetch(:user) }/myapps/#{ fetch(:application) }"
 set :use_sudo, false
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
@@ -15,7 +15,8 @@ set :use_sudo, false
 set :scm, :git
 set :repo_url, 'git@github.com:lusketeer/case-luke-io.git'
 
-
+# set :stages, ["staging", "production"]
+# set :default_stage, "staging"
 
 # Default value for :format is :pretty
 # set :format, :pretty
