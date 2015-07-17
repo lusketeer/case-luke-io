@@ -8,7 +8,6 @@
 # server 'db.example.com', user: 'deploy', roles: %w{db}
 
 server "130.211.186.249", user: "lukelu", roles: %w{web, app, db}, primary: true
-set :deploy_to, "/home/#{ user }/myapps/#{ application }"
 
 
 

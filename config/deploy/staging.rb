@@ -7,11 +7,6 @@
 # server 'example.com', user: 'deploy', roles: %w{app web}, other_property: :other_value
 # server 'db.example.com', user: 'deploy', roles: %w{db}
 
-set :application, 'smokio-case'
-set :user, "lukelu"
-server "130.211.186.249", :web, :app, :db, primary: true
-set :deploy_to, "/home/#{ user }/myapps/#{ application }_staging"
-
 # role-based syntax
 # ==================
 

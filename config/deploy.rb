@@ -7,14 +7,19 @@ set :application, 'smokio-case'
 set :user, "lukelu"
 # Default deploy_to directory is /var/www/my_app_name
 set :deploy_to, "/home/#{ fetch(:user) }/myapps/#{ fetch(:application) }"
-set :use_sudo, false
+set :use_sudo, true
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default value for :scm is :git
 set :scm, :git
 set :repo_url, 'git@github.com:lusketeer/case-luke-io.git'
-
+set :rbenv_ruby, 'ruby 2.1.0p0'
+set :ssh_options, {
+  keys: %w(~/.ssh/id_rsa),
+  forward_agent: false,
+  auth_methods: %w(publickey)
+}
 # set :stages, ["staging", "production"]
 # set :default_stage, "staging"
 
@@ -40,9 +45,9 @@ set :repo_url, 'git@github.com:lusketeer/case-luke-io.git'
 # set :keep_releases, 5
 
 namespace :deploy do
-  task :restart, roles: :app do
-    run "sudo service nginx restart"
-  end
+  # task :restart, roles: :app do
+  #   run "sudo service nginx restart"
+  # end
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
       # Here we can do anything such as:
