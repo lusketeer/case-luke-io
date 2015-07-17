@@ -27,7 +27,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'filepicker-rails'
 gem 'capistrano'
 gem 'capistrano-rails'
-gem 'capistrano-rvm'
+gem 'capistrano-rbenv'
 
 group :production do
   gem 'pg'

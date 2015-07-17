@@ -7,13 +7,13 @@ set :application, 'smokio-case'
 set :user, "lukelu"
 # Default deploy_to directory is /var/www/my_app_name
 set :deploy_to, "/home/#{ fetch(:user) }/myapps/#{ fetch(:application) }"
-set :use_sudo, true
+set :use_sudo, false
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default value for :scm is :git
 set :scm, :git
-set :repo_url, 'git@github.com:lusketeer/case-luke-io.git'
+set :repo_url, 'https://github.com/lusketeer/case-luke-io.git'
 set :rbenv_ruby, 'ruby 2.1.0p0'
 set :ssh_options, {
   keys: %w(~/.ssh/id_rsa),
