@@ -25,6 +25,8 @@ gem 'jbuilder', '~> 2.0'
 # gem 'marked-rails' # markdown format for text
 # gem 'foundation-rails' # foundation css framework
 gem 'filepicker-rails'
+gem 'capistrano'
+gem 'capistrano-rails'
 
 group :production do
   gem 'pg'
